@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-
+import numpy
 
 class Mlp(nn.Module):
     def __init__(self,alpha):
@@ -18,3 +18,4 @@ class Mlp(nn.Module):
         tem = self.layer1(Z)
         ans = self.relu(tem)
         return self.layer2(ans)
+

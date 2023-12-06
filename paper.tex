@@ -1,0 +1,109 @@
+\documentclass{mcmthesis}%美赛模板
+\mcmsetup{CTeX = false,   % 使用 CTeX 套装时，设置为 true
+	tcn = 2023-2, problem = A,%队伍控制号码，接受一个字符串作为值；选题，接受一个字符串作为值；
+	sheet = true, %为真时将输出摘要页，否则不输出；默认为 true。
+	%color = red,  %设置控制页的题目号的颜色
+	titleinsheet = true, %为真时将在摘要页输出标题，否则不输出；默认为 false。
+	keywordsinsheet = true,%为真时将在摘要页输出关键字，否则不输出；默认为 false。
+	titlepage=false,%为真时将输出标题页，否则不输出；默认为 true。
+	abstract=true}%为真时将在标题页输出摘要和关键词，否则不输出；默认值为 true。
+\usepackage[T1]{fontenc}%fontenc 宏包是用来配合传统的LaTeX字体的，如上表中的一些传统字体宏包。如果使用xelatex编译方式，并使用fontenc宏包调用ttf或otf格式字体，就不要再使用fontenc宏包. 
+\usepackage{palatino}  %控制正文字体，若是不喜欢可以注释掉。
+\usepackage{lipsum} %输入中文乱数假文。乱数假文就是大段无意义的文字，常用来测试排版效果。
+\usepackage{amsmath}%定义数学公式的宏包
+\usepackage{amssymb}%也是定义数学公式的一个宏包，对amsmath进行补充
+\usepackage{subfig}%排列图片的宏包
+\usepackage{float}%避免浮动体宏包
+\usepackage{indentfirst} %设置首行自动缩进
+\newcommand{\itemEq}[1]{%
+	\begingroup%
+	\setlength{\abovedisplayskip}{0pt}%
+	\setlength{\belowdisplayskip}{0pt}%
+	\parbox[c]{\linewidth}{\begin{flalign}#1&&\end{flalign}}%
+	\endgroup}%itemiz里面套equation
+\setlength{\parindent}{2em}
+\title{Type Your Paper Title HERE  }  %论文的题目
+\author{A \and B \and C}
+\date{\today}
+
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{12pt}{12pt}}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\makeatother
+\begin{document}    %文档的开头
+	\begin{abstract} %此处默认全部使用英文，若要使用中文显示，需要换成：\documentclass{ctexart}
+		\small
+        %%你的摘要内容
+	\begin{keywords}   %关键字
+			\footnotesize %设置字体
+		%%关键字
+	\end{keywords}
+	\end{abstract}
+	
+	\maketitle  %显示正文中出现了标题和作者
+	\tableofcontents %显示目录
+	\clearpage  %在latex中遇到很长的英文单词，仅在单词之间的”空格“初断行无法生成疏密程度均匀段落时，就会考虑从单词中间断开。对于绝大多数单词，latex能够找到合适的断词位置，在断开的行尾加上连字符-。
+	\normalsize  %重新定义默认字体大小
+	
+	%1.引言
+	\section{Introduction}
+    \subsection{ Question Restatement}
+    \subsubsection{title}
+    \subsection{Analysis of the Question}
+    
+    %2.假设和理由
+	\section{ Assumptions and Justifications}
+	
+	%3.模型1
+	\section{ Model 1}
+	\subsection{ Subtitle}
+	%4.模型2
+	\section{Model 2}
+	%5.模型x
+	\section{Model x}
+	
+	%6.优点和缺点
+	\section{Strengths and Weaknesses}
+	
+	%7.结论
+	\subsection{Conclusion}
+
+    %8.策略建议信
+	\section{Strategy Recommendation and Conclusions}
+	\noindent Theme: %%题目
+	\begin{letter}{Dear Director,}
+        
+        %%建议信的正文
+		
+		\vspace{\parskip}
+		Sicerely yours,\\
+		Your friends
+	\end{letter}
+	
+	%9.文献
+	\begin{thebibliography}{99}
+		\bibitem{1}
+		\bibitem{2}
+		\bibitem{3}
+		\bibitem{4}
+	\end{thebibliography}
+	
+	%附录，但美赛规定不添加附录，所以以下可以忽略
+	\begin{appendices}
+		\section{Code for Part 3.1}
+		\begin{lstlisting}[language=python]
+			import pandas as pd
+			import numpy as np
+			import matplotlib.pyplot as plt
+		\end{lstlisting}
+		
+		\section{Code for Part 3.3}
+		\begin{lstlisting}[language=python]
+			import pandas as pd
+			import numpy as np
+			import matplotlib.pyplot as plt	
+		\end{lstlisting}	
+	\end{appendices}
+
+
+\end{document}
